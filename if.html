@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemeriksaan Genap atau Ganjil</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function checkNumber() {
+            var number = parseInt(document.getElementById("numberInput").value);
+            var result;
+
+            if (isNaN(number)) {
+                result = "Silakan masukkan angka yang valid.";
+            } else if (number % 2 === 0) {
+                result = number + " adalah angka genap.";
+            } else {
+                result = number + " adalah angka ganjil.";
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Pemeriksaan Genap atau Ganjil</h1>
+    <p>Masukkan angka:</p>
+    <input type="text" id="numberInput">
+    <button onclick="checkNumber()">Periksa</button>
+    <p id="result"></p>
+</body>
+</html>

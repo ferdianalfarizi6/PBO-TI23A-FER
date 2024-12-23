@@ -1,0 +1,21 @@
+.area-input
+{
+    /* background: #FF0000; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 30px;
+
+}
+
+.column-1
+{
+    background: #FFCC00;
+    width: 10%;
+}
+
+.column-2
+{
+    background: #333333;
+    width: 90%;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+    <!-- Input untuk password -->
+    <div>
+        <input type="text" id="txt_password" placeholder="Enter password" />
+    </div>
+    <div style="margin-top: 10px;">
+        <input type="text" id="txt_confirm_password" placeholder="Confirm password">
+    </div>
+    <div style="margin-top: 10px;">
+        <button id="btn_login">Login</button>
+    </div>
+
+    <!-- Internal JS -->
+    <script>
+        // Deklarasikan elemen-elemen
+        const txt_password = document.querySelector("#txt_password");
+        const txt_confirm_password = document.querySelector("#txt_confirm_password");
+        const btn_login = document.querySelector("#btn_login");
+
+        // Nonaktifkan tombol login di awal
+        btn_login.disabled = true;
+
+        // Arrow function untuk validasi password
+        const validatePassword = (password, confirmPassword, count_password, count_confirmPassword, login) => {
+            // hitung jumlah karakter password dan confirm password
+            count_password = password.value.length;
+            count_confirmPassword = confirmPassword.value.length;
+
+            // jika jumlah karakter password >= 1
+            // Jika jumlah karakter confirmPassword >= 1
+            if (count_password >=1 && count_confirmPassword >=1 ) 
+               if(password.value == confirmPassword.value)
+                {
+                    login.disabled = false;
+                }
+            // Jika jumlah karakter password <= 1
+            // Jika jumlah karakter confirmPassword <= 1
+            else {
+                login.disabled = true;
+            }
+        };
+        let jml_password, jml_confirmPassword;
+        
+
+        // Event listener untuk kedua input
+        txt_password.addEventListener("keyup", function() {
+            validatePassword(this, txt_confirm_password, jml_password, jml_confirmPassword, btn_login);
+        });
+
+        txt_confirm_password.addEventListener("keyup", function() {
+            validatePassword(txt_password, this, jml_password, jml_confirmPassword, btn_login);
+        });
+
+        // Event listener tombol login (opsional)
+        btn_login.addEventListener("click", () => {
+            alert("Login berhasil!");
+        });
+    </script>
+</body>
+</html>
